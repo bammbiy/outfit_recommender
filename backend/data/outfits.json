@@ -1,0 +1,30 @@
+{
+  "hot": {
+    "top": "oversized t-shirt",
+    "bottom": "shorts",
+    "shoes": "sneakers",
+    "layers": []
+  },
+
+  "warm": {
+    "top": "t-shirt",
+    "bottom": "denim",
+    "shoes": "sneakers",
+    "layers": ["light jacket"]
+  },
+
+  "cool": {
+    "top": "long sleeve",
+    "bottom": "jeans",
+    "shoes": "sneakers",
+    "layers": ["jacket"]
+  },
+
+  "cold": {
+    "top": "knit sweater",
+    "bottom": "heavy denim",
+    "shoes": "boots",
+    "layers": ["coat"]
+  }
+
+}

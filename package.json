@@ -1,0 +1,15 @@
+{
+  "name": "weather-outfit-recommender",
+  "version": "1.0.0",
+  "description": "Simple weather based outfit recommendation service",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}

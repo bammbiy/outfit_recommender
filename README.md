@@ -1,1 +1,0 @@
-# Outfit Recommender CLI (offline)

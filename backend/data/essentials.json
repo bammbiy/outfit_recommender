@@ -1,0 +1,132 @@
+[
+  {
+    "id": "compact-umbrella",
+    "name": "compact umbrella",
+    "category": "weather accessory",
+    "trigger": "rain",
+    "searchTerm": "compact umbrella",
+    "reason": "Rainy weather makes a compact umbrella the easiest daily carry item.",
+    "styleTerms": {
+      "streetwear": "black logo umbrella",
+      "minimal": "matte black umbrella",
+      "casual": "lightweight folding umbrella"
+    }
+  },
+  {
+    "id": "rain-boots",
+    "name": "rain boots",
+    "category": "shoes",
+    "trigger": "rain",
+    "searchTerm": "rain boots",
+    "reason": "Wet streets need shoes that protect the outfit without losing shape.",
+    "styleTerms": {
+      "streetwear": "chunky rain boots",
+      "minimal": "matte short rain boots",
+      "casual": "comfortable rain boots"
+    }
+  },
+  {
+    "id": "waterproof-jacket",
+    "name": "waterproof jacket",
+    "category": "outerwear",
+    "trigger": "rain",
+    "searchTerm": "waterproof jacket",
+    "reason": "A water resistant outer layer keeps the outfit practical on rainy days.",
+    "styleTerms": {
+      "streetwear": "oversized nylon jacket",
+      "minimal": "clean waterproof jacket",
+      "casual": "light rain jacket"
+    }
+  },
+  {
+    "id": "windbreaker",
+    "name": "windbreaker",
+    "category": "outerwear",
+    "trigger": "wind",
+    "searchTerm": "windbreaker",
+    "reason": "Windy weather works better with light outerwear that blocks wind chill.",
+    "styleTerms": {
+      "streetwear": "oversized windbreaker",
+      "minimal": "solid color windbreaker",
+      "casual": "daily windbreaker"
+    }
+  },
+  {
+    "id": "linen-shirt",
+    "name": "linen shirt",
+    "category": "top",
+    "trigger": "hot",
+    "searchTerm": "linen shirt",
+    "reason": "Hot weather needs breathable fabric and a relaxed fit.",
+    "styleTerms": {
+      "streetwear": "oversized linen shirt",
+      "minimal": "plain linen shirt",
+      "casual": "summer linen shirt"
+    }
+  },
+  {
+    "id": "sunglasses",
+    "name": "sunglasses",
+    "category": "accessory",
+    "trigger": "hot",
+    "searchTerm": "sunglasses",
+    "reason": "Strong sun makes sunglasses both practical and useful as a styling point.",
+    "styleTerms": {
+      "streetwear": "bold sunglasses",
+      "minimal": "classic black sunglasses",
+      "casual": "daily sunglasses"
+    }
+  },
+  {
+    "id": "scarf",
+    "name": "scarf",
+    "category": "accessory",
+    "trigger": "cold",
+    "searchTerm": "scarf",
+    "reason": "Cold weather is easier to style with warm accessories around the neck.",
+    "styleTerms": {
+      "streetwear": "logo scarf",
+      "minimal": "wool muffler",
+      "casual": "soft scarf"
+    }
+  },
+  {
+    "id": "thermal-innerwear",
+    "name": "thermal innerwear",
+    "category": "base layer",
+    "trigger": "cold",
+    "searchTerm": "thermal innerwear",
+    "reason": "A warm base layer keeps the outfit lighter while staying comfortable.",
+    "styleTerms": {
+      "streetwear": "thermal long sleeve",
+      "minimal": "heat tech innerwear",
+      "casual": "warm innerwear"
+    }
+  },
+  {
+    "id": "breathable-tee",
+    "name": "breathable t-shirt",
+    "category": "top",
+    "trigger": "humid",
+    "searchTerm": "breathable t-shirt",
+    "reason": "Humid weather feels better with quick drying or breathable fabric.",
+    "styleTerms": {
+      "streetwear": "oversized breathable t-shirt",
+      "minimal": "plain cool t-shirt",
+      "casual": "quick dry t-shirt"
+    }
+  },
+  {
+    "id": "waterproof-bag",
+    "name": "waterproof bag",
+    "category": "bag",
+    "trigger": "rain",
+    "searchTerm": "waterproof bag",
+    "reason": "A waterproof bag protects daily items and keeps the whole look intentional.",
+    "styleTerms": {
+      "streetwear": "waterproof crossbody bag",
+      "minimal": "black waterproof tote bag",
+      "casual": "water resistant backpack"
+    }
+  }
+]

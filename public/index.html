@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WearCast</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="control-panel" aria-label="recommendation controls">
+        <div class="brand-lockup">
+          <span class="brand-mark">W</span>
+          <div>
+            <p class="eyebrow">WearCast</p>
+            <h1>오늘 입을 것과 살 것을 한번에.</h1>
+          </div>
+        </div>
+
+        <form id="recommendationForm" class="filter-form">
+          <label>
+            <span>사용자 ID</span>
+            <input name="userId" value="demo-user" autocomplete="username">
+          </label>
+
+          <label>
+            <span>도시</span>
+            <input name="city" value="Seoul" autocomplete="address-level2">
+          </label>
+
+          <div class="field-grid">
+            <label>
+              <span>스타일</span>
+              <select name="style">
+                <option value="streetwear">Streetwear</option>
+                <option value="minimal" selected>Minimal</option>
+                <option value="casual">Casual</option>
+              </select>
+            </label>
+
+            <label>
+              <span>상황</span>
+              <select name="occasion">
+                <option value="daily">Daily</option>
+                <option value="work" selected>Work</option>
+                <option value="date">Date</option>
+                <option value="travel">Travel</option>
+                <option value="school">School</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              <span>핏</span>
+              <select name="fit">
+                <option value="regular" selected>Regular</option>
+                <option value="oversized">Oversized</option>
+                <option value="wide">Wide</option>
+                <option value="slim">Slim</option>
+              </select>
+            </label>
+
+            <label>
+              <span>예산</span>
+              <select name="budget">
+                <option value="low">Low</option>
+                <option value="mid" selected>Mid</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span>선호 색상</span>
+            <input name="colors" value="black,gray" placeholder="black,gray">
+          </label>
+
+          <label>
+            <span>피하고 싶은 아이템</span>
+            <input name="avoid" placeholder="suede,boots">
+          </label>
+
+          <fieldset class="scenario-group">
+            <legend>날씨 데모</legend>
+            <label><input type="radio" name="mockWeather" value="rain" checked> Rain</label>
+            <label><input type="radio" name="mockWeather" value="hot"> Hot</label>
+            <label><input type="radio" name="mockWeather" value="cold"> Cold</label>
+            <label><input type="radio" name="mockWeather" value="wind"> Wind</label>
+            <label><input type="radio" name="mockWeather" value="humid"> Humid</label>
+          </fieldset>
+
+          <label class="toggle-row">
+            <input type="checkbox" name="mock" checked>
+            <span>Demo weather</span>
+          </label>
+
+          <div class="profile-actions">
+            <button type="button" id="saveProfileButton">취향 저장</button>
+            <button type="button" id="loadProfileButton">불러오기</button>
+          </div>
+          <p id="profileStatus" class="profile-status">demo-user 프로필을 저장해두면 다음 추천에 자동 반영됩니다.</p>
+
+          <button type="submit">추천 받기</button>
+        </form>
+      </aside>
+
+      <section class="result-panel" aria-live="polite">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Weather meets shopping</p>
+            <h2 id="pageTitle">Seoul rainy work fit</h2>
+          </div>
+          <div class="market-tabs" aria-label="marketplaces">
+            <span>Coupang</span>
+            <span>Naver</span>
+            <span>MUSINSA</span>
+          </div>
+        </header>
+
+        <section class="hero-grid">
+          <article class="weather-card">
+            <div>
+              <p class="eyebrow">현재 날씨</p>
+              <h3 id="weatherCity">Seoul</h3>
+            </div>
+            <div class="weather-temp">
+              <span id="weatherTemp">--</span>
+              <small>°C</small>
+            </div>
+            <dl class="weather-stats">
+              <div>
+                <dt>체감</dt>
+                <dd id="feelsLike">--</dd>
+              </div>
+              <div>
+                <dt>습도</dt>
+                <dd id="humidity">--</dd>
+              </div>
+              <div>
+                <dt>풍속</dt>
+                <dd id="windSpeed">--</dd>
+              </div>
+            </dl>
+            <p id="weatherDescription" class="weather-description">Loading weather</p>
+          </article>
+
+          <article class="look-card">
+            <div class="look-media">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80" alt="street style outfit">
+            </div>
+            <div class="look-copy">
+              <p class="eyebrow">오늘 코디</p>
+              <h3 id="lookSummary">추천을 불러오는 중</h3>
+              <div id="palette" class="palette"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="section-block outfit-block">
+            <div class="section-heading">
+              <p class="eyebrow">Outfit</p>
+              <h3>입고 나가기 좋은 조합</h3>
+            </div>
+            <div id="outfitItems" class="item-grid"></div>
+          </article>
+
+          <article class="section-block">
+            <div class="section-heading">
+              <p class="eyebrow">Why</p>
+              <h3>추천 이유</h3>
+            </div>
+            <ul id="reasonList" class="note-list"></ul>
+          </article>
+        </section>
+
+        <section class="section-block shopping-section">
+          <div class="section-heading">
+            <p class="eyebrow">Shopping</p>
+            <h3>오늘 있으면 좋은 아이템</h3>
+          </div>
+          <div id="shoppingGrid" class="shopping-grid"></div>
+        </section>
+
+        <section class="brand-strip">
+          <div>
+            <p class="eyebrow">Brands</p>
+            <h3>스타일에 맞는 브랜드</h3>
+          </div>
+          <div id="brandList" class="brand-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

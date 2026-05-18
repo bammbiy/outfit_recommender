@@ -4,6 +4,8 @@
 
 현재 버전은 Express 기반 API MVP이며, 향후 사용자 스타일 프로필과 옷장 데이터를 활용한 개인화 추천 앱으로 확장하는 것을 목표로 합니다.
 
+프론트엔드는 별도 빌드 도구 없이 Express에서 바로 서빙되는 정적 웹앱입니다. 무신사/에이블리/아마존 같은 쇼핑 탐색 흐름과 날씨앱의 빠른 정보성을 결합하는 방향으로 구성했습니다.
+
 ## 목표
 
 - 월간 사용자 10,000명 규모까지 확장 가능한 코디 추천 서비스로 발전
@@ -66,6 +68,7 @@
 - Node.js
 - Express
 - OpenWeather API
+- SQLite (`node:sqlite`)
 - Node.js built-in test runner
 
 ## 프로젝트 구조
@@ -77,10 +80,14 @@ backend/
     config.js
   routes/
     outfit.js
+    profile.js
   services/
     weatherService.js
     outfitService.js
     brandService.js
+    databaseService.js
+    profileRepository.js
+    recommendationRepository.js
   middleware/
     errorHandler.js
   data/
@@ -88,6 +95,10 @@ backend/
     outfits.json
   utils/
     styleEngine.js
+public/
+  index.html
+  styles.css
+  app.js
 test/
   brandService.test.js
   outfitService.test.js
@@ -104,12 +115,19 @@ npm install
 ```env
 OPENWEATHER_API=your_openweather_api_key
 PORT=3000
+DATABASE_PATH=backend/data/wearcast.sqlite
 ```
 
 서버 실행:
 
 ```bash
 npm start
+```
+
+웹앱 접속:
+
+```text
+http://localhost:3000
 ```
 
 테스트 실행:
@@ -155,6 +173,36 @@ GET /api/outfit?city=Seoul&style=minimal&occasion=work&fit=regular&colors=black,
 - `colors`: black,gray처럼 쉼표로 여러 색상 입력
 - `budget`: low, mid, high 등
 - `avoid`: suede,boots처럼 피하고 싶은 아이템 입력
+- `userId`: 저장된 사용자 프로필을 추천에 반영
+
+### User Style Profile
+
+```http
+PUT /api/profile/demo-user
+Content-Type: application/json
+
+{
+  "style": "minimal",
+  "preferredFit": "regular",
+  "preferredColors": ["black", "gray"],
+  "budget": "mid",
+  "avoid": ["suede"]
+}
+```
+
+```http
+GET /api/profile/demo-user
+```
+
+```http
+GET /api/profile/demo-user/history
+```
+
+저장된 프로필이 있으면 다음 추천 요청에서 `userId`만 넘겨도 취향이 자동 반영됩니다.
+
+```http
+GET /api/outfit?userId=demo-user&city=Seoul&occasion=work&mock=true&mockWeather=rain
+```
 
 예시 응답:
 
